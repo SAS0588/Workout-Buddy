@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Workout Buddy</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <!--<link rel="stylesheet" href="css/style.css">-->
+
+</head>
+
+<body>
+    <div class="to-exercise">
+        <h1>Exercises</h1>
+        <input type="text" id="exercise">
+        <input type="number" id="number">
+        <select id="type-of-exercise">
+            <option value="Reps">Reps</option>
+            <option value="Seconds">Seconds</option>
+            <option value="Laps">Laps</option>
+        </select>
+        <button class="submit" onclick="submit()">Submit</button>
+        <button class="save">Save Locally</button>
+        <button class="clear">Clear List</button>
+
+        <!--list of to-dos-->
+        <ul id="exercise-list-unordered">
+            <li>Push-Ups<span>12 reps</span></li>
+        </ul>
+    </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
