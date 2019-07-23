@@ -9,27 +9,35 @@
   <meta name="author" content="SitePoint">
 
   <!--<link rel="stylesheet" href="css/style.css">-->
-
 </head>
 
 <body>
-    <div class="to-exercise">
+    <div id="to-exercise">
         <h1>Exercises</h1>
-        <input type="text" id="exercise">
-        <input type="number" id="number">
-        <select id="type-of-exercise">
+        <span id="exercise-title">Exercise: </span><input type="text" id="exercise">
+        <span id="quantity-title">Quantity: </span><input type="number" id="number">
+        <span id="type-title">Type: </span><select id="type-of-exercise">
             <option value="Reps">Reps</option>
             <option value="Seconds">Seconds</option>
             <option value="Laps">Laps</option>
         </select>
-        <button class="submit" onclick="submit()">Submit</button>
+        <button id="submit">Submit</button>
+        <button id="clear">Clear List</button>
+        <!-- Saving for later functionality
+
         <button class="save">Save Locally</button>
-        <button class="clear">Clear List</button>
+        
+        -->
 
         <!--list of to-dos-->
         <ul id="exercise-list-unordered">
-            <li>Push-Ups<span>12 reps</span></li>
         </ul>
+    </div>
+    <br>
+    <div id="timer">
+      <h1>Timer</h1>
+      <button id="rounds">Rounds</button>
+      <button id="straight-timer">Straight Timer</button>
     </div>
   <script src="js/script.js"></script>
 </body>
