@@ -37,7 +37,19 @@
     <div id="timer">
       <h1>Timer</h1>
       <button id="rounds">Rounds</button>
-      <button id="straight-timer">Straight Timer</button>
+      <button id="countdown-timer">Countdown Timer</button>
+      <div id="rounds-display">
+        <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds">
+        <span id="length-title">Length of Rounds</span><select id="length-of-rounds">
+          <option value="twenty-secs">20 Sec</option>
+          <option value="thirty-secs">30 Sec</option>
+          <option value="forty-secs">40 Sec</option>
+          <option value="fifty-secs">50 Sec</option>
+          <option value="one-min">1 min</option>
+        </select>
+        <button id="submit-rounds-timer" onclick="roundsTimer()">Submit</button>
+      </div>
+
     </div>
   <script src="js/script.js"></script>
 </body>

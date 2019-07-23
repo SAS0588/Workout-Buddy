@@ -56,4 +56,27 @@ function createElement(ex,num,typ){
 function clear(){
     // this function clears the entire list of exercises
     console.log('clear function works');
-}
+};
+
+/* function roundsTimer(){
+    let x = setInterval(function(){
+
+        Pseudo code
+        1. Enter the number of rounds
+        2. Enter the length of each round
+        3. Create a new date object
+        4. Set the length of each round as the setTimeout parameter
+        5. Display the seconds
+        
+
+        // 1. Enter the number or rounds
+        const rounds = document.getElementById('number-of-rounds').value;
+        
+        // 2. Enter the length of each round
+        const roundLength =  document.getElementById('length-of-rounds').value;
+        console.log(roundLength);
+
+        const timerForRounds = new Date();
+    },500);
+
+}; */
