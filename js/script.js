@@ -11,7 +11,6 @@ function submit(){
     const exercise = document.getElementById('exercise').value;
     const number = document.getElementById('number').value;
     const type = document.getElementById('type-of-exercise').value;
-    console.log(`${exercise},${number}`);
 
     // erase UI input values
     document.getElementById('exercise').value = '';
@@ -58,25 +57,50 @@ function clear(){
     console.log('clear function works');
 };
 
-/* function roundsTimer(){
-    let x = setInterval(function(){
+/* //////////////////////////////////////////
+Timer Functions
+//////////////////////////////////////////// */
+/* Algorithm:
+        1. create a function that executes for every second using setInterval.
+        2. Get the total number of minutes .
+        3. convert that into seconds and store in a global variable.
+        4. decrement the seconds by “1" for each second.
+        5. check if the seconds reach 0 if true then alert user and clear the timer.
+    */
 
-        Pseudo code
-        1. Enter the number of rounds
-        2. Enter the length of each round
-        3. Create a new date object
-        4. Set the length of each round as the setTimeout parameter
-        5. Display the seconds
-        
+// Get the total number of time needed
+let lengthOfRounds = document.getElementById('length-of-rounds').value;
+let numOfRounds = document.getElementById('number-of-rounds').value;
 
-        // 1. Enter the number or rounds
-        const rounds = document.getElementById('number-of-rounds').value;
-        
-        // 2. Enter the length of each round
-        const roundLength =  document.getElementById('length-of-rounds').value;
-        console.log(roundLength);
+// Event Listener
+document.getElementById('submit-rounds-timer').addEventListener('click', roundsTimer);
+document.getElementById('clear-rounds-timer').addEventListener('click',stopInterval);
 
-        const timerForRounds = new Date();
-    },500);
+function roundsTimer(){
 
-}; */
+    // executes every second
+    intervalVariable = setInterval(executeRoundsTimer,1000);
+
+};
+
+function executeRoundsTimer(){
+    // Decrease lengthOfRounds by seconds
+    lengthOfRounds = lengthOfRounds - 1;
+
+    // Check if timer is finished
+    if (lengthOfRounds > -1){
+        if(lengthOfRounds < 10){
+            lengthOfRounds = '0' + lengthOfRounds;
+        };
+        document.getElementById('timer-display').innerHTML = `00:${lengthOfRounds}`;
+        console.log(lengthOfRounds);
+    } else {
+        console.log('Timer has finished!');
+        stopInterval();
+
+    };
+};
+
+function stopInterval(){
+    clearInterval(intervalVariable);
+};

@@ -41,13 +41,15 @@
       <div id="rounds-display">
         <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds">
         <span id="length-title">Length of Rounds</span><select id="length-of-rounds">
-          <option value="twenty-secs">20 Sec</option>
-          <option value="thirty-secs">30 Sec</option>
-          <option value="forty-secs">40 Sec</option>
-          <option value="fifty-secs">50 Sec</option>
-          <option value="one-min">1 min</option>
+          <option value="20">20 Sec</option>
+          <option value="30">30 Sec</option>
+          <option value="40">40 Sec</option>
+          <option value="50">50 Sec</option>
+          <option value="60">1 min</option>
         </select>
-        <button id="submit-rounds-timer" onclick="roundsTimer()">Submit</button>
+        <button id="submit-rounds-timer">Start Timer</button>
+        <button id="clear-rounds-timer">Stop Timer</button>
+        <p id="timer-display"></p>
       </div>
 
     </div>
