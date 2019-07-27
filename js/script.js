@@ -68,39 +68,67 @@ Timer Functions
         5. check if the seconds reach 0 if true then alert user and clear the timer.
     */
 
+/*
 // Get the total number of time needed
 let lengthOfRounds = document.getElementById('length-of-rounds').value;
 let numOfRounds = document.getElementById('number-of-rounds').value;
 
-// Event Listener
-document.getElementById('submit-rounds-timer').addEventListener('click', roundsTimer);
-document.getElementById('clear-rounds-timer').addEventListener('click',stopInterval);
 
-function roundsTimer(){
-
-    // executes every second
-    intervalVariable = setInterval(executeRoundsTimer,1000);
-
-};
 
 function executeRoundsTimer(){
-    // Decrease lengthOfRounds by seconds
-    lengthOfRounds = lengthOfRounds - 1;
-
-    // Check if timer is finished
-    if (lengthOfRounds > -1){
-        if(lengthOfRounds < 10){
-            lengthOfRounds = '0' + lengthOfRounds;
-        };
-        document.getElementById('timer-display').innerHTML = `00:${lengthOfRounds}`;
-        console.log(lengthOfRounds);
-    } else {
-        console.log('Timer has finished!');
-        stopInterval();
-
-    };
+   
 };
+
+
+*/
+
+// Event Listener
+document.getElementById('submit-rounds-timer').addEventListener('click', main);
+document.getElementById('clear-rounds-timer').addEventListener('click', stopInterval);
+
+// Global Variables
+let lengthOfRounds;
+let numOfRounds;
+
+function main(){
+    lengthOfRounds = Number(document.getElementById('length-of-rounds').value);
+    numOfRounds = Number(document.getElementById('number-of-rounds').value);
+    timerInterval(lengthOfRounds, numOfRounds);
+};
+
+function timerInterval(ln,num){
+    let length = ln;
+    let number = 1;
+
+    // executes every second
+    intervalVariable = setInterval(() => {
+        
+         // Decrease lengthOfRounds by seconds
+        length = length - 1;
+
+        // Check if timer is finished
+        if (length > -1){
+            if(length < 10){
+                length = '0' + length;
+            };
+            document.getElementById('timer-display').innerHTML = `Time Remaining: 00:${length}`;
+        } else {
+            if(number != num){
+                length = ln;
+                number = number + 1;
+            } else {
+                console.log('Timer has finished!');
+                stopInterval();
+            };
+        };
+        document.getElementById('round-display').innerHTML = `Round: ${number}`;
+    },1000);
+};
+
 
 function stopInterval(){
     clearInterval(intervalVariable);
+    document.getElementById('round-display').style.display = 'none';
+    document.getElementById('timer-display').style.display = 'none';
+    document.getElementById('finished-display').innerHTML = `Timer has finished!`;
 };
