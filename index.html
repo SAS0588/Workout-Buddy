@@ -37,7 +37,7 @@
     <div id="timer">
       <h1>Timer</h1>
       <button id="rounds">Rounds</button>
-      <button id="countdown-timer">Countdown Timer</button>
+      <button id="countdown">Countdown Timer</button>
       <div id="rounds-display">
         <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds">
         <span id="length-title">Length of Rounds</span><select id="length-of-rounds">
@@ -53,7 +53,12 @@
         <p id="timer-display" class="round-timer-display"></p>
         <p id="finished-display" class="round-timer-display"></p>
       </div>
-
+      <div id="countdown-display">
+        <span id="hours-title">Hours: </span><input type="number" id="time-input">
+        <span id="minutes-title">Minutes: </span><input type="number" id="time-input">
+        <span id="seconds-title">Seconds: </span><input type="number" id="time-input">
+        <p id="countdown-display"></p>
+      </div>
     </div>
   <script src="js/script.js"></script>
 </body>

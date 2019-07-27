@@ -58,7 +58,7 @@ function clear(){
 };
 
 /* //////////////////////////////////////////
-Timer Functions
+Round Timer Functions
 //////////////////////////////////////////// */
 /* Algorithm:
         1. create a function that executes for every second using setInterval.
@@ -68,34 +68,23 @@ Timer Functions
         5. check if the seconds reach 0 if true then alert user and clear the timer.
     */
 
-/*
-// Get the total number of time needed
-let lengthOfRounds = document.getElementById('length-of-rounds').value;
-let numOfRounds = document.getElementById('number-of-rounds').value;
-
-
-
-function executeRoundsTimer(){
-   
-};
-
-
-*/
-
 // Event Listener
 document.getElementById('submit-rounds-timer').addEventListener('click', main);
 document.getElementById('clear-rounds-timer').addEventListener('click', stopInterval);
+document.getElementById('rounds').addEventListener('click',hideCountdown);
 
 // Global Variables
 let lengthOfRounds;
 let numOfRounds;
 
+// Start Round Functionality
 function main(){
     lengthOfRounds = Number(document.getElementById('length-of-rounds').value);
     numOfRounds = Number(document.getElementById('number-of-rounds').value);
     timerInterval(lengthOfRounds, numOfRounds);
 };
 
+// ln = length of rounds & num = number of rounds
 function timerInterval(ln,num){
     let length = ln;
     let number = 1;
@@ -131,4 +120,22 @@ function stopInterval(){
     document.getElementById('round-display').style.display = 'none';
     document.getElementById('timer-display').style.display = 'none';
     document.getElementById('finished-display').innerHTML = `Timer has finished!`;
+};
+
+function hideCountdown(){
+    document.getElementById('rounds-display').style.display = 'block';
+    document.getElementById('countdown-display').style.display = 'none';
+};
+
+/*
+///////////////////////////////////////
+//    Countdown Timer Functions     //
+/////////////////////////////////////
+*/
+
+document.getElementById('countdown').addEventListener('click',hideRounds);
+
+function hideRounds(){
+    document.getElementById('rounds-display').style.display = 'none';
+    document.getElementById('countdown-display').style.display = 'block';
 };
