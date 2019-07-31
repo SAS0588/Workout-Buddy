@@ -57,9 +57,10 @@ function clear(){
     console.log('clear function works');
 };
 
-/*
-Round Timer Functions
-*/
+////////////////////////////////////////////
+///////////    Timers  ////////////////////
+//////////////////////////////////////////
+
 
 /* Algorithm:
         1. create a function that executes for every second using setInterval.
@@ -69,13 +70,17 @@ Round Timer Functions
         5. check if the seconds reach 0 if true then alert user and clear the timer.
     */
 
+/*
+Round Timer Functions
+*/
+
 // Event Listener
 document.getElementById('submit-rounds-timer').addEventListener('click', main);
 document.getElementById('clear-rounds-timer').addEventListener('click', stopInterval);
 document.getElementById('rounds').addEventListener('click',hideCountdown);
 
 // Default View
-document.getElementById('rounds-display').style.display = 'none';
+document.getElementById('countdown-display').style.display = 'none';
 
 // Global Variables
 let lengthOfRounds;
@@ -83,6 +88,8 @@ let numOfRounds;
 
 // Start Round Functionality
 function main(){
+
+    // Display Properties
     document.getElementById('submit-rounds-timer').disabled = true;
     document.getElementById('countdown').disabled = true;
     document.getElementById('round-display').style.display = 'block';
@@ -90,12 +97,16 @@ function main(){
     document.getElementById('finished-display').innerHTML = '';
     document.getElementById('round-display').innerHTML = '';
     document.getElementById('timer-display').innerHTML = '';
+
+    // String => Number conversion
     lengthOfRounds = Number(document.getElementById('length-of-rounds').value);
     numOfRounds = Number(document.getElementById('number-of-rounds').value);
+
+    // Start intervals and pass the length of each round and the number of each round
     roundTimerInterval(lengthOfRounds, numOfRounds);
 };
 
-// ln = length of rounds & num = number of rounds
+// @param ln = length of rounds & num = number of rounds
 function roundTimerInterval(ln,num){
     let length = ln;
     let number = 1;
@@ -144,12 +155,63 @@ function hideCountdown(){
 //    Countdown Timer Functions     //
 /////////////////////////////////////
 
-
+// Event listener for Countdown button
 document.getElementById('countdown').addEventListener('click',hideRounds);
 
+// Hides all round displays/functionality
 function hideRounds(){
     document.getElementById('rounds-display').style.display = 'none';
     document.getElementById('countdown-display').style.display = 'block';
 };
+
+// Start, Stop, and Reset event listeners
+document.getElementById('start-countdown').addEventListener('click',startCountdown);
+document.getElementById('stop-countdown').addEventListener('click',stopCountdown);
+
+function startCountdown(){
+    /* Algorithm:
+        1. create a function that executes for every second using setInterval.
+        2. Get the total number of minutes .
+        3. convert that into seconds and store in a global variable.
+        4. decrement the seconds by “1" for each second.
+        5. check if the seconds reach 0 if true then alert user and clear the timer.
+    */
+   const hours = Number(document.getElementById('hours-input').value);
+   const mins = Number(document.getElementById('minutes-input').value);
+   const secs = Number(document.getElementById('seconds-input').value);
+   countdownTimerInterval(hours,mins,secs);
+
+}
+
+function countdownTimerInterval(h,m,s){
+    let total = (h * 3600) + (m * 60) + (s);
+    console.log(total);
+    
+
+    // executes every second
+    countdownIntervalVariable = setInterval(() => {
+        
+         // Decrease time by seconds
+        total = total - 1;
+        console.log(total);
+        // Check if timer is finished
+        if(total === 3661){
+            stopCountdown();
+        };
+
+    }, 1000);
+};
+
+function stopCountdown(){
+    clearInterval(countdownIntervalVariable);
+};
+
+
+
+
+
+
+
+
 
 
