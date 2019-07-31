@@ -57,9 +57,10 @@ function clear(){
     console.log('clear function works');
 };
 
-/* //////////////////////////////////////////
+/*
 Round Timer Functions
-//////////////////////////////////////////// */
+*/
+
 /* Algorithm:
         1. create a function that executes for every second using setInterval.
         2. Get the total number of minutes .
@@ -73,19 +74,29 @@ document.getElementById('submit-rounds-timer').addEventListener('click', main);
 document.getElementById('clear-rounds-timer').addEventListener('click', stopInterval);
 document.getElementById('rounds').addEventListener('click',hideCountdown);
 
+// Default View
+document.getElementById('rounds-display').style.display = 'none';
+
 // Global Variables
 let lengthOfRounds;
 let numOfRounds;
 
 // Start Round Functionality
 function main(){
+    document.getElementById('submit-rounds-timer').disabled = true;
+    document.getElementById('countdown').disabled = true;
+    document.getElementById('round-display').style.display = 'block';
+    document.getElementById('timer-display').style.display = 'block';
+    document.getElementById('finished-display').innerHTML = '';
+    document.getElementById('round-display').innerHTML = '';
+    document.getElementById('timer-display').innerHTML = '';
     lengthOfRounds = Number(document.getElementById('length-of-rounds').value);
     numOfRounds = Number(document.getElementById('number-of-rounds').value);
-    timerInterval(lengthOfRounds, numOfRounds);
+    roundTimerInterval(lengthOfRounds, numOfRounds);
 };
 
 // ln = length of rounds & num = number of rounds
-function timerInterval(ln,num){
+function roundTimerInterval(ln,num){
     let length = ln;
     let number = 1;
 
@@ -114,9 +125,11 @@ function timerInterval(ln,num){
     },1000);
 };
 
-
+// Stop Round Timer
 function stopInterval(){
     clearInterval(intervalVariable);
+    document.getElementById('submit-rounds-timer').disabled = false;
+    document.getElementById('countdown').disabled = false;
     document.getElementById('round-display').style.display = 'none';
     document.getElementById('timer-display').style.display = 'none';
     document.getElementById('finished-display').innerHTML = `Timer has finished!`;
@@ -127,11 +140,10 @@ function hideCountdown(){
     document.getElementById('countdown-display').style.display = 'none';
 };
 
-/*
 ///////////////////////////////////////
 //    Countdown Timer Functions     //
 /////////////////////////////////////
-*/
+
 
 document.getElementById('countdown').addEventListener('click',hideRounds);
 
@@ -139,3 +151,5 @@ function hideRounds(){
     document.getElementById('rounds-display').style.display = 'none';
     document.getElementById('countdown-display').style.display = 'block';
 };
+
+
