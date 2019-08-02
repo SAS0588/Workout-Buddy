@@ -8,7 +8,7 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <!--<link rel="stylesheet" href="css/style.css">-->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         
         -->
 
-        <!--list of to-dos-->
+        <!--LIST OF TO-DOs-->
         <ul id="exercise-list-unordered">
         </ul>
     </div>
@@ -38,8 +38,10 @@
       <h1>Timer</h1>
       <button id="rounds">Rounds</button>
       <button id="countdown">Countdown Timer</button>
+      
+      <!--ROUNDS TIMER-->
       <div id="rounds-display">
-        <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds">
+        <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds" min="1" max="50">
         <span id="length-title">Length of Rounds</span><select id="length-of-rounds">
           <option value="20">20 Sec</option>
           <option value="30">30 Sec</option>
@@ -53,14 +55,16 @@
         <p id="timer-display" class="round-timer-display"></p>
         <p id="finished-display" class="round-timer-display"></p>
       </div>
+
+
+      <!--COUNTDOWN TIMER-->
       <div id="countdown-display">
-        <span id="hours-title">Hours: </span><input type="number" id="hours-input">
-        <span id="minutes-title">Minutes: </span><input type="number" id="minutes-input">
-        <span id="seconds-title">Seconds: </span><input type="number" id="seconds-input">
+        <span id="minutes-title">Minutes: </span><input type="number" id="minutes-input" min="0" max="60">
+        <span id="seconds-title">Seconds: </span><input type="number" id="seconds-input" min="1" max="60">
         <button id="start-countdown">Start</button>
         <button id="stop-countdown">Stop</button>
         <button id="reset-countdown">Reset</button>
-        <p id="countdown-display"></p>
+        <p id="countdown-clock-display"></p>
       </div>
     </div>
   <script src="js/script.js"></script>
