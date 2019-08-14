@@ -1,72 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
-  <title>Workout Buddy</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+    <title>Workout Buddy</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div id="to-exercise">
-        <h1>Exercises</h1>
-        <span id="exercise-title">Exercise: </span><input type="text" id="exercise">
-        <span id="quantity-title">Quantity: </span><input type="number" id="number">
-        <span id="type-title">Type: </span><select id="type-of-exercise">
+      <div id="start-hide">
+        <h1 class="title">Workout Of The Day</h1>
+        <form class="exercise-input-form">
+          <input
+            type="text"
+            placeholder="Enter Exercise Name"
+            id="exercise"
+            class="input-box"
+          />
+          <input
+            type="number"
+            placeholder="Quantity of Exercise"
+            id="number"
+            class="input-box"
+          />
+          <select id="type-of-exercise" class="input-box">
             <option value="Reps">Reps</option>
             <option value="Seconds">Seconds</option>
             <option value="Laps">Laps</option>
-        </select>
-        <button id="submit">Submit</button>
-        <button id="clear">Clear List</button>
-        <!-- Saving for later functionality
+          </select>
+        </form>
+        <div id="centered-buttons">
+          <button id="submit" class="form-button">Submit</button>
+          <button id="start" class="form-button">Start</button>
+          <button id="clear" class="form-button">Clear</button>
+        </div>
+      </div>
+      <button id="enter" class="form-button">Enter Exercise</button>
 
+      <!-- Saving for later functionality
         <button class="save">Save Locally</button>
-        
         -->
 
-        <!--LIST OF TO-DOs-->
-        <ul id="exercise-list-unordered">
-        </ul>
-    </div>
-    <br>
-    <div id="timer">
-      <h1>Timer</h1>
-      <button id="rounds">Rounds</button>
-      <button id="countdown">Countdown Timer</button>
-      
-      <!--ROUNDS TIMER-->
-      <div id="rounds-display">
-        <span id="rounds-title"># Of Rounds </span><input type="number" id="number-of-rounds" min="1" max="50">
-        <span id="length-title">Length of Rounds</span><select id="length-of-rounds">
-          <option value="20">20 Sec</option>
-          <option value="30">30 Sec</option>
-          <option value="40">40 Sec</option>
-          <option value="50">50 Sec</option>
-          <option value="60">1 min</option>
-        </select>
-        <button id="submit-rounds-timer">Start Timer</button>
-        <button id="clear-rounds-timer">Stop Timer</button>
-        <p id="round-display" class="round-timer-display"></p>
-        <p id="timer-display" class="round-timer-display"></p>
-        <p id="finished-display" class="round-timer-display"></p>
-      </div>
-
-
-      <!--COUNTDOWN TIMER-->
-      <div id="countdown-display">
-        <span id="minutes-title">Minutes: </span><input type="number" id="minutes-input" min="0" max="60">
-        <span id="seconds-title">Seconds: </span><input type="number" id="seconds-input" min="1" max="60">
-        <button id="start-countdown">Start</button>
-        <button id="stop-countdown">Stop</button>
-        <button id="reset-countdown">Reset</button>
-        <p id="countdown-clock-display"></p>
+      <!--LIST OF TO-DOs-->
+      <div class="to-dos-list">
+        <ul id="exercise-list-unordered"></ul>
       </div>
     </div>
-  <script src="js/script.js"></script>
-</body>
+
+    <div id="timer-main">
+      <h1 class="title">Timer</h1>
+      <div class="timer-buttons">
+        <button id="rounds" class="form-button">Rounds</button>
+        <button id="countdown" class="form-button">Countdown</button>
+      </div>
+      <div id="timers">
+        <div id="rounds-display">
+          <div id="in-line">
+            <input
+              type="number"
+              placeholder="#"
+              id="number-of-rounds"
+              min="1"
+              max="50"
+              class="input-box"
+            />
+            <select id="length-of-rounds">
+              <option value="20">20 Sec</option>
+              <option value="30">30 Sec</option>
+              <option value="40">40 Sec</option>
+              <option value="50">50 Sec</option>
+              <option value="60">1 min</option>
+            </select>
+            <button id="submit-rounds-timer" class="form-button">
+              Start Timer
+            </button>
+            <button id="stop-rounds-timer" class="form-button">
+              Stop Timer
+            </button>
+          </div>
+          <p id="round-display" class="round-timer-display"></p>
+          <p id="timer-display" class="round-timer-display"></p>
+          <p id="finished-display" class="round-timer-display"></p>
+        </div>
+
+        <div id="countdown-display">
+          <input
+            type="number"
+            placeholder="Minutes..."
+            id="minutes-input"
+            class="input-box"
+            min="0"
+            max="60"
+          />
+          <input
+            type="number"
+            placeholder="Seconds..."
+            id="seconds-input"
+            class="input-box"
+            min="1"
+            max="60"
+          />
+          <button id="start-countdown" class="form-button">Start</button>
+          <button id="stop-countdown" class="form-button">Stop</button>
+          <button id="reset-countdown" class="form-button">Reset</button>
+          <p id="countdown-clock-display"></p>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>

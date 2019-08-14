@@ -4,7 +4,8 @@
 
 // Add eventListeners for exercise submission and clear list
 document.getElementById('submit').addEventListener("click",submit);
-document.getElementById('clear').addEventListener("click",clear);
+document.getElementById('start').addEventListener("click",start);
+document.getElementById('enter').addEventListener("click",enter);
 
 // form validation check for numbers in input field
 const checkAgainst = /^[0-9]+$/;
@@ -44,7 +45,7 @@ function createElement(ex,num,typ){
     spanItem.setAttributeNode(spanAttribute);
     // 3. create a text node to attach the text value to the list item and span item
     const listItemText = document.createTextNode(ex);
-    const spanItemText = document.createTextNode(` ${num} ${typ}`);
+    const spanItemText = document.createTextNode(` - ${num} ${typ}`);
     // 4. attach the text to the list item and span item
     spanItem.appendChild(spanItemText);
     listItem.appendChild(listItemText);
@@ -56,10 +57,16 @@ function createElement(ex,num,typ){
     unorderedList.appendChild(listItem);
 };
 
-function clear(){
+function start(){
     // this function clears the entire list of exercises
-    console.log('clear function works');
+    document.getElementById('start-hide').style.display = 'none';
+    document.getElementById('enter').style.display = 'block';
 };
+
+function enter(){
+    document.getElementById('start-hide').style.display = 'block';
+    document.getElementById('enter').style.display = 'none';
+}
 
 
 ////////////////////////////////////////////
@@ -100,12 +107,12 @@ Round Timer Functions
 
 // Event Listener
 document.getElementById('submit-rounds-timer').addEventListener('click', formCheck);
-document.getElementById('clear-rounds-timer').addEventListener('click', stopInterval);
+document.getElementById('stop-rounds-timer').addEventListener('click', stopInterval);
 
 // Form Check
 function formCheck(){
-    const roundInput = document.getElementById('number-of-rounds').value;
-    if(roundInput.length === 0 || roundInput == 'e'){
+    const roundInput = Number(document.getElementById('number-of-rounds').value);
+    if(roundInput <= 0){
         alert("please check the number of rounds field for an error.");
     } else {
         main();
@@ -156,7 +163,7 @@ function roundTimerInterval(ln,num){
             if(length < 10){
                 length = '0' + length;
             };
-            document.getElementById('timer-display').innerHTML = `Time Remaining: 00:${length}`;
+            document.getElementById('timer-display').innerHTML = `00:${length}`;
         } else {
             if(number != num){
                 length = ln;
@@ -197,6 +204,14 @@ function endDisplay(){
 document.getElementById('start-countdown').addEventListener('click',startCountdown);
 document.getElementById('stop-countdown').addEventListener('click',stopCountdown);
 
+function countdownFormCheck(m,s){
+    if (m <= 0 || s <= 0){
+        alert('Please enter a valid number.');
+    } else {
+        countdownTimerInterval(m,s);
+    };
+};
+
 function startCountdown(){
     /* Algorithm:
         1. create a function that executes for every second using setInterval.
@@ -205,10 +220,19 @@ function startCountdown(){
         4. decrement the seconds by “1" for each second.
         5. check if the seconds reach 0 if true then alert user and clear the timer.
     */
+    // turn off start button and rounds button
+    setCountdownDisplay();
+
    const mins = Number(document.getElementById('minutes-input').value);
    const secs = Number(document.getElementById('seconds-input').value);
-   countdownTimerInterval(mins,secs);
+   
+   countdownFormCheck(mins,secs);
 }
+
+function setCountdownDisplay(){
+    document.getElementById('start-countdown').disabled = true;
+    document.getElementById('rounds').disabled = true;
+};
 
 function countdownTimerInterval(m,s){
     let total = (m * 60) + (s);
@@ -244,14 +268,13 @@ function countdownTimerInterval(m,s){
 
 function stopCountdown(){
     clearInterval(countdownIntervalVariable);
+    endCountdownDisplay();
 };
 
-// NEXT STEPS:
-/*
-Fix countdown timer's functionality. We need to be able to disable rounds button, check field input (especially negative input), and apply reset button functionality.
-
-Find bugs (rounds still has an ability to take negative numbers) and squash them!
-*/
+function endCountdownDisplay(){
+    document.getElementById('start-countdown').disabled = false;
+    document.getElementById('rounds').disabled = false;
+};
 
 
 

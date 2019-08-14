@@ -1,3 +1,126 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/prism.png);
+}
+#to-exercise{
+    float: left;
+    width: 50%;
+    margin: 25px;
+}
+.title{
+    font-family: 'Saira Stencil One', cursive;
+    color: white;
+    font-size: 46px;
+    margin: 0;
+}
+.exercise-input-form{
+    display: block;
+    margin: 10px;
+}
+.input-box{
+    width: 20%;
+    padding: 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 5px;
+}
+select{
+    -webkit-appearance: menulist-button;
+    height: 50px;
+}
+#centered-buttons{
+    text-align: left;
+    margin: 5px;
+}
+#submit{
+    background-color: #4285F4;
+    color: White;
+    margin: 5px;
+}
+#start{
+    background-color: #0F9D58;
+    color: white;
+    margin: 5px;
+}
+#enter{
+    display: none;
+    width: auto;
+    background-color: #F4B400;
+    color: white;
+    margin: 10px;
+}
+#clear{
+    background-color: #DB4437;
+    color: white;
+}
+.form-button{
+    display: inline-block;
+    height: 40px;
+    width: 20%;
+    margin: 0px;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 17px;
+}
+.to-dos-list{
+    display: flex;
+}
+ul{
+    list-style-type: none;
+    color: aliceblue;
+    font-size: 56px;
+    padding: 0px;
+    margin: 0px;
+}
+#timer-main{
+    float: left;
+    width: 40%;
+    margin: 25px;
+}
+#timer-heading{
+    font-family: Arial, Helvetica, sans-serif;
+    color: White;
+    margin: 10px;
+}
+.timer-buttons{
+    margin: 10px;
+}
+#rounds{
+    background-color: #F4B400;
+    color: white;
+    width: auto;
+}
+#countdown{
+    background-color: purple;
+    color: white;
+    width: auto;
+}
 #rounds-display{
     display: none;
 }
+#number-of-rounds{
+    width: 90px;
+}
+#length-of-rounds{
+    width: 90px;
+    height: 40px;
+}
+#submit-rounds-timer{
+    width: auto;
+    background-color: #0F9D58;
+    color: white;
+}
+#stop-rounds-timer{
+    width: auto;
+    background-color: #DB4437;
+    color: white;
+}
+.round-timer-display{
+    font-size: 70px;
+    color: white;
+    text-align: left;
+}
+
+
